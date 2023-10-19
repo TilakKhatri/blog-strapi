@@ -7,6 +7,7 @@ import Tabs from "@/components/navbar/Tab";
 import ArticleList from "@/components/Articles/ArticleList";
 import Pagination from '@/components/Pagination'
 import { useRouter } from "next/router";
+import { debounce } from "../../utilis/format";
 
 const roboto = Roboto({
   weight: ["300", "400", "700"],
@@ -34,7 +35,7 @@ const Home: React.FC<ITypeProps> = ({ categories, articles }) => {
   }
   return (
     <div>
-      <Tabs categories={categories.items} handleSearchInput={handleSearch}/>
+      <Tabs categories={categories.items} handleSearchInput={debounce(handleSearch,500)}/>
       <ArticleList articles={articles.items} />
       <Pagination page= {articles.pagination.page} pageCount={articles.pagination.pageCount}/>
     </div>
@@ -44,7 +45,7 @@ const Home: React.FC<ITypeProps> = ({ categories, articles }) => {
 export const getServerSideProps: GetServerSideProps = async ({query}) => {
   // customize query
   const options:Partial<any> = {
-    populate: ["author.avatar"],
+    populate: ["Image","author.avatar"],
     sort: ["id:desc"],
     pagination:{
       page:query.page ? query.page : 1,

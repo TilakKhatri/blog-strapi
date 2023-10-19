@@ -32,47 +32,39 @@ interface IArticle {
   attributes: IArticleAttribute;
 }
 interface IImage {
-    data: {
-        attributes: {
-            url: string;
-            formats: {
-                small: {
-                    url: string;
-                };
-            };
-        };
-    };
-
+  data: [
+    {
+      attributes: {
+        url: string;
+      };
+    }
+  ];
 }
 interface IArticleAttribute {
   Title: string;
   Content: string;
-  Image:IImage
-  Slug: string;
+  Image: IImage;
+  slug: string;
   createdAt: string;
   author: IAuthor;
 }
-
-
 
 // author type define
 interface IAuthor {
   data: {
     attributes: {
-        username: string;
-        avatar: {
-            data: {
-                attributes: {
-                    formats: {
-                        thumbnail: {
-                            url: string;
-                        };
-                    };
-                };
+      username: string;
+      avatar: {
+        data: {
+          attributes: {
+            formats: {
+              thumbnail: {
+                url: string;
+              };
             };
+          };
         };
+      };
     };
-};
+  };
 }
-
-

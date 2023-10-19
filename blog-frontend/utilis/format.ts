@@ -11,7 +11,7 @@ return date;
 
 
 // for debounce
-export function debounce(func: ()=>void, delay:number) {
+export function debounce(func: (query:string)=>void, delay:number) {
     let timeoutId:NodeJS.Timeout;
   
     return  (...args: any) => {

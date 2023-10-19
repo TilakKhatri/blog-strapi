@@ -32,7 +32,7 @@ const Category: React.FC<ITypeProps> = ({
   return (
     <>
       <Head>
-        <title>Guide2Begin {slug}</title>
+        <title>Guide2Begin</title>
         <meta />
       </Head>
       <Tabs categories={categories.items} handleSearchInput={handleSearch}/>
@@ -44,7 +44,7 @@ const Category: React.FC<ITypeProps> = ({
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const categoryFilter = qs.stringify({
-    populate: ["author.avatar"],
+    populate: ["Image","author.avatar"],
     sort: ["id:desc"],
     filters: {
       category: {
@@ -56,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         pageSize:3
       }
   });
-console.log(categoryFilter)
+// console.log(categoryFilter)
   const { data: categories }: AxiosResponse<ICollectionResponse<ICategory[]>> =
     await fetchCategories();
 
