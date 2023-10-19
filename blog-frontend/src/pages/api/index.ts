@@ -13,3 +13,5 @@ export const fetchCategories =async () => api.get('/api/categories');
 
 // for articles
 export const fetchArticles =async (qsString:string) => api.get(`/api/articles?${qsString}`);
+// fetch by slug
+export const fetchArticleBySlug = async(qsString:string) => api.get(`/api/articles?${qsString}`);

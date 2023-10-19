@@ -7,11 +7,11 @@ type IProp = {
 const BlogCard = ({ article }: IProp) => {
   // console.log('url ',process.env.NEXT_PUBLIC_BASE_URL)
   return (
-    <div className="container flex sm:flex-row flex-col  border-teal-100 shadow-md p-4">
-      <div className="w-full flex justify-center sm:justify-start items-center px-4 py-2">
+    <div className="container min-w-md flex sm:flex-row flex-col  border-teal-100 shadow-md p-4">
+      <div className="w-full flex justify-start sm:py-2 py-0">
       <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}${article.attributes.Image.data[0].attributes.url}`} width={210} height={250}   alt="image" className="rounded-lg"/>
       </div>
-      <div className="w-full flex flex-col sm:justify-end justify-center items-center" >
+      <div className="w-full flex flex-col " >
         <Link href={`/article/${article.attributes.slug}`}>
           <h1 className="text-lg font-medium text-gray-800 hover:decoration-primary hover:cursor-pointer hover:underline hover:text-primary">
             {article.attributes.Title}
