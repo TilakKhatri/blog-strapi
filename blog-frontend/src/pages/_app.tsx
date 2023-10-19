@@ -10,7 +10,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <main className="mt-[5rem]">
         <Component {...pageProps} />
       </main>
-      
       <Footer />
     </div>
   );
